@@ -4,18 +4,17 @@
   "scripts": {
     "codegen": "graph codegen",
     "build": "graph build",
-    "deploy": "graph deploy --node https://api.thegraph.com/deploy/ --ipfs https://api.thegraph.com/ipfs/ blocklytics/ethereum-blocks",
-    "create-local": "graph create --node http://localhost:8020/ blocklytics/ethereum-blocks",
-    "remove-local": "graph remove --node http://localhost:8020/ blocklytics/ethereum-blocks",
-    "deploy-local": "graph deploy --node http://localhost:8020/ --ipfs http://localhost:5001 blocklytics/ethereum-blocks",
-    "deploy-rinkeby": "graph deploy --node https://api.thegraph.com/deploy/ --ipfs https://api.thegraph.com/ipfs/ blocklytics/rinkeby-blocks",
-    "deploy-kovan": "graph deploy --node https://api.thegraph.com/deploy/ --ipfs https://api.thegraph.com/ipfs/ blocklytics/kovan-blocks",
-    "deploy-goerli": "graph deploy --node https://api.thegraph.com/deploy/ --ipfs https://api.thegraph.com/ipfs/ blocklytics/goerli-blocks",
-    "deploy-ropsten": "graph deploy --node https://api.thegraph.com/deploy/ --ipfs https://api.thegraph.com/ipfs/ blocklytics/ropsten-blocks",
-    "deploy-poa": "graph deploy --node https://api.thegraph.com/deploy/ --ipfs https://api.thegraph.com/ipfs/ blocklytics/poa-core-blocks"
+    "create-local": "graph create twopointfive/ethereum-blocks --node http://127.0.0.1:8020",
+    "remove-local": "graph remove --node http://localhost:8020/ twopointfive/ethereum-blocks",
+    "deploy-local": "graph deploy --node http://localhost:8020/ --ipfs http://localhost:5001 twopointfive/ethereum-blocks subgraph.yaml",
+    "redeploy-local": "yarn codegen; yarn build; yarn remove-local; yarn create-local; yarn deploy-local",
+    "start:node": "rm -rf ./graph_data && docker-compose up -d",
+    "create-prod": "graph create twopointfive/ethereum-blocks --node https://graph.testnet.mantle.xyz/deploy",
+    "remove-prod": "graph remove --node https://graph.testnet.mantle.xyz/deploy twopointfive/ethereum-blocks",
+    "deploy-prod": "graph deploy twopointfive/ethereum-blocks --ipfs https://ipfs.testnet.mantle.xyz --node https://graph.testnet.mantle.xyz/deploy"
   },
-  "dependencies": {
-    "@graphprotocol/graph-cli": "^0.17.1",
-    "@graphprotocol/graph-ts": "0.17.0"
+  "devDependencies": {
+    "@graphprotocol/graph-cli": "^0.51.2",
+    "@graphprotocol/graph-ts": "^0.31.0"
   }
 }
