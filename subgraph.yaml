@@ -1,17 +1,17 @@
 specVersion: 0.0.5
-description: Indexing all Ethereum Block data
-repository: https://github.com/twopointfive/ethereum-blocks
+description: Indexing individual Mantle block data
+repository: https://github.com/butterxyz/mantle-blocks
 schema:
   file: ./schema.graphql
 dataSources:
   - kind: ethereum/contract
     name: V3Factory
-    network: testnet
+    network: mainnet
     # Source doesn't matter, this is just listening for blocks
     source:
-      address: '0x5B3752a78139E277cC2eBAF658df87CDb86959f0'
+      address: '0xEECa0a86431A7B42ca2Ee5F479832c3D4a4c2644'
       abi: Factory
-      startBlock: 13519005
+      startBlock: 24075590
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.6

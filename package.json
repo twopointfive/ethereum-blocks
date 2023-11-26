@@ -1,17 +1,14 @@
 {
-  "name": "ethereum-blocks",
+  "name": "mantle-blocks",
   "license": "UNLICENSED",
   "scripts": {
     "codegen": "graph codegen",
     "build": "graph build",
-    "create-local": "graph create twopointfive/ethereum-blocks --node http://127.0.0.1:8020",
-    "remove-local": "graph remove --node http://localhost:8020/ twopointfive/ethereum-blocks",
-    "deploy-local": "graph deploy --node http://localhost:8020/ --ipfs http://localhost:5001 twopointfive/ethereum-blocks subgraph.yaml",
+    "create-local": "graph create butterxyz/mantle-blocks --node http://127.0.0.1:8020",
+    "remove-local": "graph remove --node http://localhost:8020/ butterxyz/mantle-blocks",
+    "deploy-local": "graph deploy --node http://localhost:8020/ --ipfs http://localhost:5001 butterxyz/mantle-blocks subgraph.yaml",
     "redeploy-local": "yarn codegen; yarn build; yarn remove-local; yarn create-local; yarn deploy-local",
-    "start:node": "rm -rf ./graph_data && docker-compose up -d",
-    "create-prod": "graph create twopointfive/ethereum-blocks --node https://graph.testnet.mantle.xyz/deploy",
-    "remove-prod": "graph remove --node https://graph.testnet.mantle.xyz/deploy twopointfive/ethereum-blocks",
-    "deploy-prod": "graph deploy twopointfive/ethereum-blocks --ipfs https://ipfs.testnet.mantle.xyz --node https://graph.testnet.mantle.xyz/deploy"
+    "start:node": "rm -rf ./graph_data && docker-compose up -d"
   },
   "devDependencies": {
     "@graphprotocol/graph-cli": "^0.51.2",
